@@ -1,0 +1,7 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
+drive.google.com	FALSE	/	TRUE	1807827569	OSID	g.a0007whAzDj512ONzknwmAJ9L9paQkk_HsB7ZAntQDO4JhVHpoB3L-bFkJ7Lrh6-7bcg0eSUUgACgYKAbASARMSFQHGX2MitQcnxQo5bK38Pi4PvFcD9BoVAUF8yKq9VMYtZx49kcBCXAqoRxKv0076
+drive.google.com	FALSE	/	TRUE	1807827569	__Secure-OSID	g.a0007whAzDj512ONzknwmAJ9L9paQkk_HsB7ZAntQDO4JhVHpoB39raLwbOwxlPBRp2biMcDuwACgYKAZkSARMSFQHGX2Mi0xindYFVNqOB3meUZ1FpXRoVAUF8yKqzbASBbhr21K9L-6V7tdaQ0076
+drive.google.com	FALSE	/	TRUE	1775859580	OTZ	8516060_72_76_104100_72_446760

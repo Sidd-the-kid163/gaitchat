@@ -1,0 +1,45 @@
+backend/script_03/mdm/dataset/HumanML3D/texts
+backend/script_03/mdm/dataset/HumanML3D/new_joint_vecs
+backend/script_03/mdm/save/
+backend/script_02/motiongpt3/deps/
+backend/script_05/momask/checkpoints/
+backend/script_06/motionclip/exps/
+backend/script_03/mdm/prepare/kit/
+backend/script_03/mdm/prepare/t2m/
+backend/script_04/t2mgpt/checkpoints/t2m/
+backend/script_04/t2mgpt/checkpoints/kit/
+backend/script_07/motionagent/checkpoints/kit/
+backend/script_07/motionagent/checkpoints/t2m/
+backend/script_02/motiongpt3/checkpoints/1222_mld_humanml3d_FID041.ckpt
+backend/script_02/motiongpt3/checkpoints/motiongpt3.ckpt
+backend/script_04/t2mgpt/ViT-B-32.pt
+backend/script_06/motionclip/data/amass_db/amass_30fps_vald.pt
+backend/script_06/motionclip/data/amass_db/amass_30fps_train.pt
+backend/script_03/mdm/dataset/t2m_test.npy
+backend/script_04/t2mgpt/pretrained/VQTransformer_corruption05/net_best_fid.pth
+backend/script_07/motionagent/ckpt/motionllm.pth
+backend/script_06/motionclip/models/smplh/
+backend/script_01/motiondiffuse/checkpoints/t2m/
+
+# Ignore __pycache__
+backend/__pycache__/
+**/__pycache__/
+*.py[cod]
+
+backend/input/
+
+# Ignore node_modules
+frontend/node_modules/
+
+history1.csv
+history2.csv
+history3.csv
+history4.csv
+history5.csv
+history6.csv
+history7.csv
+
+# Local environment files
+.env
+backend/.env
+

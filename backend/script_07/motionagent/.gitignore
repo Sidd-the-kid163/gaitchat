@@ -1,0 +1,11 @@
+/.env
+/utils
+/prepare
+/options
+/models
+/glove
+/demo
+/dataset
+/ckpt
+/checkpoints
+/assets
