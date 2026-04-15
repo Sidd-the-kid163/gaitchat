@@ -805,7 +805,44 @@ class MLM(nn.Module):
             hidden = outputs.hidden_states
             #semantic_embeddings = []
             #semantic_positions = []
-            last_hidden = hidden[-1][self.mod_id]
+            last_hidden = hidden[-1][self.mod_id].detach()   # [bs, seq_len, 768] .cpu for steering
+            """
+            attn = source_attention_mask.detach().cpu().bool()
+            ids = source_input_ids.detach().cpu()
+
+            # batch size 1 assumed, but this works generally
+            for b in range(last_hidden.shape[0]):
+                attn_b = attn[b]
+                ids_b = ids[b]
+
+                full_positions = torch.nonzero(attn_b, as_tuple=True)[0]
+                ids_valid = ids_b[attn_b]
+
+                som_idx = (ids_valid == self.som_id).nonzero(as_tuple=True)[0]
+                eom_idx = (ids_valid == self.eom_id).nonzero(as_tuple=True)[0]
+
+                s = som_idx[-1].item()
+                e_after = eom_idx[eom_idx > s]
+                e = e_after[0].item()
+
+                output_positions = full_positions[s+1:e]
+
+                base = last_hidden[b, output_positions, :]
+
+                data = np.load("./motiongpthst2m/person is jumping.npz")
+                target_embed = torch.tensor(data["layer_12_hidden"])
+
+                base_vec = base.mean(dim=0)           # (768,)
+                target_vec = target_embed.mean(dim=0) # (768,)
+
+                direction = target_vec - base_vec     # (768,)
+                delta = direction.unsqueeze(0).repeat(base.shape[0], 1)
+                delta = .75 * delta
+
+                last_hidden_mod = last_hidden.clone()
+                last_hidden_mod[b, output_positions, :] += delta
+                hidden[-1][self.mod_id].copy_(last_hidden_mod.to(hidden[-1][self.mod_id].device))
+            """
             """
             for layer_idx in range(len(hidden)):
                 hidden_motion = hidden[layer_idx][self.mod_id].detach().cpu()
@@ -862,7 +899,7 @@ class MLM(nn.Module):
         ]).detach().cpu()
         """
         #latents = torch.stack([h[output_is_motion_cpu[i], :] for i,h in enumerate(last_hidden_reconstructed)]) # bs, motion_holder_repeat, lat_dim(768)
-        latents = torch.stack([h[output_is_motion[i], :] for i,h in enumerate(last_hidden)]) # bs, motion_holder_repeat, lat_dim(768)
+        latents = torch.stack([h[output_is_motion[i].cpu(), :] for i,h in enumerate(last_hidden)]) #last_hidden_mod for steering
 
         if self.with_hid_norm:
             latents = self.norm_layer(latents)

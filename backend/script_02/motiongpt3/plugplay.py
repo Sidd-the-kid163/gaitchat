@@ -7,6 +7,8 @@ import time
 # import cv2
 import os
 import numpy as np
+import pickle
+import io
 import pytorch_lightning as pl
 import moviepy.editor as mp
 from pathlib import Path
@@ -457,7 +459,11 @@ for line in sys.stdin:
         motion_joints_path,
         2, task, userid, save_dict
     )
+    """ for steering
+    history = pickle.dumps(save_dict)
+    np.savez("./cache/output.npz", **np.load(io.BytesIO(history), allow_pickle=True))
     cache_dir = "./cache" #clearing cache except for needed file
+    """
     for fname in os.listdir(cache_dir):
         fpath = os.path.abspath(os.path.join(cache_dir, fname))
         if os.path.isfile(fpath) and fname != data_stored[-1]['model_output']['motion_video_fname']:
