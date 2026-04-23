@@ -343,12 +343,12 @@ async def get_datasets():
 # ── Process management ────────────────────────────────────────────────────────
 
 SCRIPTS = {
-    #"01": {"env": "motiondiffuse", "script": "script_01/motiondiffuse/plugplay.py"},
+    "01": {"env": "motiondiffuse", "script": "script_01/motiondiffuse/plugplay.py"},
     "02": {"env": "mgpt",     "script": "script_02/motiongpt3/plugplay.py"},
-    #"03": {"env": "mdm",           "script": "script_03/mdm/plugplay.py"},
-    #"04": {"env": "T2M-GPT",        "script": "script_04/t2mgpt/plugplay.py"},
-    #"05": {"env": "momask",        "script": "script_05/momask/plugplay.py"},
-    #"06": {"env": "motionclip",    "script": "script_06/motionclip/plugplay.py"},
+    "03": {"env": "mdm",           "script": "script_03/mdm/plugplay.py"},
+    "04": {"env": "T2M-GPT",        "script": "script_04/t2mgpt/plugplay.py"},
+    "05": {"env": "momask",        "script": "script_05/momask/plugplay.py"},
+    "06": {"env": "motionclip",    "script": "script_06/motionclip/plugplay.py"},
     #"07": {"env": "motionagent",   "script": "script_07/motionagent/demo.py"},
 }
 processes: dict[str, asyncio.subprocess.Process] = {}

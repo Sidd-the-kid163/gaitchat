@@ -28,7 +28,7 @@ backend/__pycache__/
 
 backend/input/
 
-# Ignore node_modules
+# Ignore node_modules - run npm install in the frontend directory to get the dependencies
 frontend/node_modules/
 
 history1.csv
@@ -39,7 +39,7 @@ history5.csv
 history6.csv
 history7.csv
 
-# Local environment files
+# Local environment files 
 .env
 backend/.env
 
